@@ -2,39 +2,35 @@ import random
 import time
 
 
-
 def table():
     number1 = random.randint(1,10)
     number2 = random.randint(1,10)
+    start = time.time()
     while True:
         try:
             answer_user = int(input(f'{number1} * {number2} = '))
             break
         except ValueError:
-            print('No')
+            print('Пожалуйста, введите целое число!')
+    end = time.time()
 
-    answer_robot = number1 * number2
-
-    if answer_user == answer_robot:
-        print('Верно')
+    if answer_user == number1 * number2:
+        print(f'Верно.(Время:{end-start:.1f}сек)')
     else:
-        print(f'Неверно, правильный ответ: {answer_robot}')
+        print(f'Неверно! Правильный ответ: {number1 * number2} (Время:{end-start:.1f}сек)')
 
 
 def counter(n):
-    while n != 0:
-        n -= 1
+    for i in range(1,n+1):
+        print(f'Вопрос {i}/{n}')
         table()
 
-def time1():
-    start = time.time()
-    end = time.time()
-    cor = end - start
-    print(f'{cor:.1f}')
 
 def main():
     c = int(input('Введите количество примеров: '))
     counter(c)
 
+
 main()
+
 
