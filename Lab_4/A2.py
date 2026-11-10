@@ -15,6 +15,7 @@ def right_triangle(rows, columns,name1):
         print()
     if name1 != 4:
         restart()
+
 def frame(rows, columns):
     print(f'Рамка {rows}x{columns}:')
     for row in range(rows):
@@ -25,6 +26,7 @@ def frame(rows, columns):
                 print(" ", end="")
         print()
     restart()
+
 def restart():
     name2 = int(input('Вы хотите увидеть ещё фигуры?\nЕсли да введите 1, если нет введи 2:'))
     if name2 == 1:
@@ -33,9 +35,9 @@ def restart():
         print('Хорошего дня')
     else:
         print('Функии ещё нет')
-def main():
-    rows = int(input('Введите количество столбцов:'))
-    columns = int(input('Введите количество рядов:'))
+        restart()
+
+def check(rows,columns):
     name1 = int(input(
         f'Какую фигуру вы хотите увидеть?\nВведите 1 - если прямоугольник, 2 - если треугольник, 3 - если рамку, а 4 - если все:'))
     if name1 == 1:
@@ -50,4 +52,11 @@ def main():
         frame(rows, columns)
     else:
         print('функии ещё нет')
+        check(rows,columns)
+
+def main():
+    rows = int(input('Введите количество столбцов:'))
+    columns = int(input('Введите количество рядов:'))
+    check(rows,columns)
+
 main()
